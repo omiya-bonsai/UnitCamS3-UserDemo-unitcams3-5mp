@@ -1,0 +1,2 @@
+dependencies:
+  espressif/esp_diag_data_store: "1.0.1"
