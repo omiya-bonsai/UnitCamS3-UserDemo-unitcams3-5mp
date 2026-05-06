@@ -1,5 +1,11 @@
 # UnitCamS3-5MP Home Assistant ローカルカメラ化
 
+English version:
+
+[README.md](README.md)
+
+---
+
 このプロジェクトは、M5Stack公式の UnitCamS3-5MP UserDemo firmware を改造し、
 Home Assistant から利用可能なローカルLANカメラとして動作させるものです。
 

@@ -1,5 +1,11 @@
 # UnitCamS3-5MP Home Assistant Local Camera Mod
 
+Japanese version:
+
+[README.ja.md](README.ja.md)
+
+---
+
 This project modifies the official M5Stack UnitCamS3-5MP UserDemo firmware to work as a local LAN camera for Home Assistant.
 
 The original firmware mainly focuses on AP mode and EZData cloud posting.
