@@ -1,64 +1,79 @@
-# UnitCAMS3-5MP UserDemo
+# UnitCamS3-5MP Home Assistant Local Camera Mod
+
+This project modifies the official M5Stack UnitCamS3-5MP UserDemo firmware to work as a local LAN camera for Home Assistant.
+
+The original firmware mainly focuses on AP mode and EZData cloud posting.
+This modification converts it into a local STA-mode camera server.
+
+---
+
+## Features
+
+- Wi-Fi STA mode
+- Local Web UI
+- Home Assistant Generic Camera support
+- JPEG snapshot endpoint
+- MJPEG stream endpoint
+- No cloud dependency
+- ESP-IDF based build
+
+---
+
+## URLs
+
+```text
+http://192.168.3.62/
+http://192.168.3.62/api/v1/capture
+http://192.168.3.62/api/v1/stream
+```
+
+---
+
+## Home Assistant Example
+
+```yaml
+camera:
+  - platform: generic
+    name: unitcams3_5mp
+    still_image_url: "http://192.168.3.62/api/v1/capture"
+    stream_source: "http://192.168.3.62/api/v1/stream"
+```
+
+---
 
 ## Build
 
-### Fetch Dependencies
-
-```bash
-python ./fetch_repos.py
-```
-
-## Desktop Build
-
-#### Tool Chains
-
-```bash
-sudo apt install build-essential cmake
-```
-
-#### Build
-
-```bash
-mkdir build && cd build
-```
-```bash
-cmake .. && make -j8
-```
-#### Run
-
-```bash
-cd desktop && ./app_desktop_build
-```
-
-## IDF Build
-
-#### Tool Chains
-
-[ESP-IDF v5.1.4](https://docs.espressif.com/projects/esp-idf/en/v5.1.4/esp32s3/index.html)
-
-#### Build
-
-```bash
+```zsh
 cd platforms/unitcam_s3_5mp
-```
 
-```bash
 idf.py build
+
+idf.py -p /dev/cu.usbmodem201301 flash monitor
 ```
 
-#### Flash
+---
 
-```bash
-idf.py -p <YourPort> flash -b 1500000
+## Notes
+
+This repository includes modifications for:
+
+- local web server startup
+- STA mode operation
+- disabling poster task flow
+- Home Assistant integration
+
+---
+
+## Documentation
+
+Detailed development notes:
+
+```text
+docs/unitcams3_ha_sta_integration_handoff_2026_05_06.md
 ```
 
-##### Flash AssetPool
+---
 
-```bash
-parttool.py --port <YourPort> write_partition --partition-name=assetpool --input "path/to/AssetPool.bin"
-```
+## License
 
-If you run desktop build before, you can found `AssetPool.bin` at 
-
-`../../build/desktop/AssetPool.bin`.
-
+See LICENSE.

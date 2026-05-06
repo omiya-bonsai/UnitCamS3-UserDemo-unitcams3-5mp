@@ -31,3 +31,12 @@ CMakeFiles/
 CMakeCache.txt
 cmake_install.cmake
 Makefile
+
+
+*.hex
+
+.DS_Store
+
+*.log
+
+.vscode/
