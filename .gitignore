@@ -40,3 +40,4 @@ Makefile
 *.log
 
 .vscode/
+.DS_Store
