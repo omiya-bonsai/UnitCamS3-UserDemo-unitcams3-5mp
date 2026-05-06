@@ -2,3 +2,32 @@
 build
 dependencies
 *.pdf
+
+
+
+# build outputs
+build/
+**/build/
+
+# ESP-IDF
+sdkconfig.old
+
+# macOS
+.DS_Store
+
+# logs
+*.log
+
+# binaries
+*.bin
+*.elf
+*.map
+
+# vscode
+.vscode/
+
+# cmake
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
